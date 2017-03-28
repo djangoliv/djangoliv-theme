@@ -21,7 +21,7 @@
  `(isearch ((t (:foreground "white" :background "SteelBlue"))))
  `(lazy-highlight ((t (:background "DarkSlateGray4"))))
  `(cua-rectangle ((t (:background "CornflowerBlue" :foreground "white"))))
- `(cursor ((t (:foreground "CadetBlue"))))
+ `(cursor ((t (:foreground "#7FC2E4"))))
  `(header-line ((t (:foreground "white" :background "#1f4f4f" :height 102 :box (:line-width -1 :style released-button)))))
 ;;; comments
  `(font-lock-comment-face  ((t (:foreground "chocolate1" :italic t)))))
