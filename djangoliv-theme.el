@@ -21,14 +21,10 @@
  `(isearch ((t (:foreground "white" :background "SteelBlue"))))
  `(lazy-highlight ((t (:background "DarkSlateGray4"))))
  `(cua-rectangle ((t (:background "CornflowerBlue" :foreground "white"))))
- `(cursor ((t (:foreground "#7FC2E4"))))
  `(header-line ((t (:foreground "white" :background "#1f4f4f" :height 102 :box (:line-width -1 :style released-button)))))
 ;;; comments
  `(font-lock-comment-face  ((t (:foreground "chocolate1" :italic t)))))
-;;;;; frame
-(add-to-list 'default-frame-alist '(background-color . "DarkSlateGray"))
-(add-to-list 'default-frame-alist '(foreground-color . "wheat"))
-;;;;; tabbar
+;; tabbar
 (setq tabbar-background-color "DarkSlateGray") ;; the color of the tabbar background
 (custom-set-variables
  '(tabbar-scroll-left-button (quote (("") "")))
@@ -48,7 +44,7 @@
 				tabbar-unselected
 				tabbar-unselected-modified))
   (put face 'saved-face-comment "modify"))
-;;;; dired
+;; dired
 (custom-set-faces
  '(dired-filetype-common ((t (:foreground "white"))))
  '(dired-filetype-compress ((t (:foreground "thistle"))))
@@ -88,7 +84,7 @@
 ;; minibuffer
 (set-face-foreground 'minibuffer-prompt "LightBlue")
 ;; whitespace-mode
-;;(setq whitespace-style (quote (spaces tabs newline space-mark tab-mark newline-mark space-before-tab space-after-tab)))
+(setq whitespace-style (quote (spaces tabs newline space-mark tab-mark newline-mark space-before-tab space-after-tab)))
 (custom-set-faces
  '(trailing-whitespace ((t (:background "#0e3f4e")))))
 (setq whitespace-display-mappings '(
@@ -101,7 +97,7 @@
 (custom-set-faces '(magit-section-heading ((t (:foreground "gray"))))
 				  '(magit-section-highlight ((t (:background "#36115AE15AE1"))))
 				  '(magit-diff-context-highlight  ((t (:background "#37115AE15AE1")))))
-;;; popup
+;; popup
 (custom-set-faces `(popup-scroll-bar-background-face ((t (:background ,"LightSlateGray")))))
 ;;; cedet
 (custom-set-faces '(semantic-decoration-on-unknown-includes ((t (:background "#36115AE15AE1"))))
@@ -119,7 +115,7 @@
 (custom-set-faces '(markdown-header-face-4 ((t (:foreground "LightBlue" :bold t)))))
 (custom-set-faces '(markdown-header-face-5 ((t (:foreground "PowderBlue" :bold t)))))
 (custom-set-faces '(markdown-header-face-6 ((t (:foreground "PaleTurquoise" :bold t)))))
-;;;; rainbow-delimiter
+;; rainbow-delimiter
 (custom-set-faces
  '(rainbow-delimiters-depth-1-face ((t (:foreground "wheat"))))
  '(rainbow-delimiters-depth-2-face ((t (:foreground "wheat"))))
@@ -227,7 +223,7 @@ it built in), and nothing else."
   (djangoliv--state-mark-modeline-dot color1 (interpolate color1 color2) color2
   "/* XPM */
 static char * data[] = {
-\"13 18 3 1\",
+\"13 14 3 1\",
 \"@ c %s\",
 \"# c %s\",
 \" c %s\",
@@ -238,22 +234,18 @@ static char * data[] = {
 \"@@@@@        \",
 \"@@@@@#       \",
 \"@@@@@@       \",
-\"@@@@@@       \",
 \"@@@@@@#      \",
-\"@@@@@@@      \",
 \"@@@@@@@      \",
 \"@@@@@@@#     \",
 \"@@@@@@@@     \",
-\"@@@@@@@@     \",
 \"@@@@@@@@#    \",
-\"@@@@@@@@@@   \",
 \"@@@@@@@@@@@  \",
 \"@@@@@@@@@@@@#\"};"))
 (defun djangoliv-separator-left(color1 color2)
   (djangoliv--state-mark-modeline-dot color1 (interpolate color1 color2) color2
  "/* XPM */
 static char * data[] = {
-\"13 18 3 1\",
+\"13 14 3 1\",
 \"@ c %s\",
 \"# c %s\",
 \" c %s\",
@@ -264,15 +256,11 @@ static char * data[] = {
 \"        @@@@@\",
 \"       #@@@@@\",
 \"       @@@@@@\",
-\"       @@@@@@\",
-\"      #@@@@@@\",
-\"      @@@@@@@\",
 \"      @@@@@@@\",
 \"     #@@@@@@@\",
 \"     @@@@@@@@\",
 \"     @@@@@@@@\",
 \"    #@@@@@@@@\",
-\"   @@@@@@@@@@\",
 \"  @@@@@@@@@@@\",
 \"#@@@@@@@@@@@@\"};"))
 
@@ -288,8 +276,7 @@ static char * data[] = {
 (add-function :before pre-redisplay-function #'djangoliv-is-selected)
 
 (setq-default mode-line-format
-			  '("  "
-				;; Position, including warning for 200 columns
+			  '(;; Position, including warning for 200 columns
 				(:eval (propertize "%5l" 'face (if (eq djangoliv-selwin (get-buffer-window)) 'mode-line-lin-face 'mode-line-inactive)))
 				":"
 				(:eval (propertize "%3c" 'face (if (eq djangoliv-selwin (get-buffer-window))
@@ -297,24 +284,24 @@ static char * data[] = {
 													   'mode-line-80col-face
 													 'mode-line-col-face) 'mode-line-inactive)))
 				;; relative position, size of file
-				"  ["
+				" ["
 				(:propertize mode-line-position face mode-line-col-face)
 				"/"
 				(:eval (propertize "%I" 'face (if (eq djangoliv-selwin (get-buffer-window)) 'mode-line-col-face 'mode-line-inactive))) ;; size
-				"]  "
+				"]"
 				;; read-only or modified status
 				(:eval
 				 (cond (buffer-read-only
 						(propertize " RO " 'face 'mode-line-read-only-face))
 					   ((buffer-modified-p)
 						(propertize " ** " 'face 'mode-line-modified-face))
-					   (t "      ")))
+					   (t "   ")))
 				" "
 				(:eval (if (eq djangoliv-selwin (get-buffer-window))
 						   (djangoliv-separator-left "#1f443f" "#1f4f4f")
 						 (djangoliv-separator-left "#2f4f4f" "#2f4f4f")))
 				;; directory and buffer/file name
-				(:eval (propertize (shorten-directory default-directory 26) 'face (if (eq djangoliv-selwin (get-buffer-window)) 'mode-line-folder-face 'mode-line-inactive)))
+				(:eval (propertize (shorten-directory default-directory 20) 'face (if (eq djangoliv-selwin (get-buffer-window)) 'mode-line-folder-face 'mode-line-inactive)))
 				;; filename if not dired
 				(:eval (if (not (eq major-mode 'dired-mode)) (propertize "%b " 'face (if (eq djangoliv-selwin (get-buffer-window)) 'mode-line-filename-face 'mode-line-inactive))))
 				(:eval (if (eq djangoliv-selwin (get-buffer-window))
@@ -333,7 +320,7 @@ static char * data[] = {
 				(:eval (if (boundp 'mode-icons-cached-mode-name) (propertize mode-icons-cached-mode-name)))
 				;; mode indicators: vc, recursive edit, major mode, minor modes, process, global
 				(vc-mode vc-mode)
-				"    "
+				" "
 				(:eval (if (eq djangoliv-selwin (get-buffer-window))
 						   (djangoliv-separator-left "#1f443f" "#1f4f4f")
 						 (djangoliv-separator-left "#2f4f4f" "#2f4f4f")))
