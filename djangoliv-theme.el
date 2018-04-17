@@ -7,35 +7,39 @@
 ;;;; Couleurs par defaut
 (cond (window-system
 	   (set-foreground-color "wheat")
-	   (set-background-color "DarkSlateGray")
-	   (set-cursor-color "#7FC2E4")
+	   (set-background-color "#143138")
+	   (set-cursor-color "CadetBlue")
 	   (set-mouse-color "CadetBlue")
 	   (set-face-foreground 'menu "wheat")
-	   (set-face-background 'menu "DarkSlateGray")
-	   (set-face-background 'fringe "DarkSlateGray")
+	   (set-face-background 'menu "#133434")
+	   (set-face-background 'fringe "#133434")
 	   (set-face-foreground 'region "white")
 	   (set-face-background 'region "SteelBlue")
-	   (set-face-background 'tool-bar "DarkSlateGray")))
+	   (set-face-background 'tool-bar "#133434")))
 (custom-set-faces
- `(fringe ((t (:background "#1f4f4f"))))
+ `(fringe ((t (:background "#143434"))))
  `(isearch ((t (:foreground "white" :background "SteelBlue"))))
  `(lazy-highlight ((t (:background "DarkSlateGray4"))))
  `(cua-rectangle ((t (:background "CornflowerBlue" :foreground "white"))))
- `(header-line ((t (:foreground "white" :background "#1f4f4f" :height 102 :box (:line-width -1 :style released-button)))))
+;; `(cursor ((t (:foreground "CadetBlue"))))
+ `(header-line ((t (:foreground "white" :background "#1f3f4f" :height 102 :box (:line-width -1 :style released-button)))))
 ;;; comments
  `(font-lock-comment-face  ((t (:foreground "chocolate1" :italic t)))))
+;; frame
+;; (add-to-list 'default-frame-alist '(background-color . "#133434"))
+;; (add-to-list 'default-frame-alist '(foreground-color . "wheat"))
 ;; tabbar
-(setq tabbar-background-color "DarkSlateGray") ;; the color of the tabbar background
+(setq tabbar-background-color "#133434") ;; the color of the tabbar background
 (custom-set-variables
  '(tabbar-scroll-left-button (quote (("") "")))
  '(tabbar-scroll-right-button (quote (("") ""))))
 (custom-set-faces
  '(tabbar-default ((t (:height 0.95))))
- '(tabbar-button ((t (:inherit tabbar-default :foreground "WhiteSmoke" :background "#1f4f4f" :box '(:line-width 1 :color "whiteSmoke" :style nil)))))
+ '(tabbar-button ((t (:inherit tabbar-default :foreground "gray" :background "#1f3f4f" :box '(:line-width 1 :color "CadetBlue" :style nil)))))
  '(tabbar-separator ((t (:background "gray50"))))
- '(tabbar-selected ((t (:inherit tabbar-default :foreground "WhiteSmoke" :background "#1f4f4f" :bold t :box '(:line-width 1 :color "whiteSmoke" :style nil)))))
+ '(tabbar-selected ((t (:inherit tabbar-default :foreground "gray" :background "#1f3f4f" :bold t :box '(:line-width 1 :color "CadetBlue" :style nil)))))
  '(tabbar-selected-modified nil :foreground "peru" :bold t :box '(:line-width 1 :color "blue4" :style nil))
- '(tabbar-unselected ((t (:inherit tabbar-default :foreground "DarkGray" :background "#1f4f4f" :bold t :box '(:line-width 1 :color "gray40" :style nil)))))
+ '(tabbar-unselected ((t (:inherit tabbar-default :foreground "Gray50" :background "#1f3f4f" :bold t :box '(:line-width 1 :color "CadetBlue" :style nil)))))
  '(tabbar-unselected-modified nil :foreground "DarkOrange3" :box '(:line-width 1 :color "gray40" :style nil)))
 (dolist (face '(tabbar-default
 				tabbar-button
@@ -44,12 +48,13 @@
 				tabbar-unselected
 				tabbar-unselected-modified))
   (put face 'saved-face-comment "modify"))
-;; dired
+
+;;dired
 (custom-set-faces
  '(dired-filetype-common ((t (:foreground "white"))))
  '(dired-filetype-compress ((t (:foreground "thistle"))))
  '(dired-filetype-image ((t (:foreground "plum"))))
- '(dired-filetype-plain ((t (:foreground "LightGray"))))
+ '(dired-filetype-plain ((t (:foreground "gray"))))
  '(dired-filetype-xml ((t (:foreground "WhiteSmoke"))))
  '(dired-header ((t (:foreground "#91ba8a"))))
 ;;; dired-k
@@ -64,7 +69,7 @@
  '(org-level-3 ((t (:inherit outline-3 :height 1.02 :foreground "LightSkyBlue"))))
  '(org-level-4 ((t (:inherit outline-4 :height 1.01 :foreground "LightBlue"))))
  '(org-level-5 ((t (:inherit outline-5 :height 1.00 :foreground "LightSteelBlue1"))))
- '(org-level-6 ((t (:inherit outline-6 :height 1.00 :foreground "LightGray"))))
+ '(org-level-6 ((t (:inherit outline-6 :height 1.00 :foreground "gray"))))
  '(org-level-7 ((t (:inherit outline-7 :height 1.00 :foreground "gray90"))))
  '(org-level-8 ((t (:inherit outline-8 :height 1.00 :foreground "WhiteSmoke"))))
  '(org-checkbox ((t (:foreground "#7BC6E4" :bold t))))
@@ -73,7 +78,7 @@
  '(org-archived ((t (:foreground "#008f80"))))
  '(org-ellipsis ((t (:underline nil))))
  '(org-link ((t (:foreground "cyan" :underline t :background "#2e3436")))))
-;; org-priority
+;;org-priority
 (setq org-priority-faces '((?A . (:foreground "OrangeRed" :weight "bold" :background "#271363936393"))
                            (?B . (:foreground "orange" :background "#271363936393"))
                            (?C . (:foreground "gold" :background "#271363936393"))))
@@ -83,7 +88,9 @@
  '(term-color-green  ((t (:foreground "green" :background "DarkGreen")))))
 ;; minibuffer
 (set-face-foreground 'minibuffer-prompt "LightBlue")
-;; whitespace-mode
+
+
+;;whitespace-mode
 (setq whitespace-style (quote (spaces tabs newline space-mark tab-mark newline-mark space-before-tab space-after-tab)))
 (custom-set-faces
  '(trailing-whitespace ((t (:background "#0e3f4e")))))
@@ -97,15 +104,15 @@
 (custom-set-faces '(magit-section-heading ((t (:foreground "gray"))))
 				  '(magit-section-highlight ((t (:background "#36115AE15AE1"))))
 				  '(magit-diff-context-highlight  ((t (:background "#37115AE15AE1")))))
-;; popup
+;;popup
 (custom-set-faces `(popup-scroll-bar-background-face ((t (:background ,"LightSlateGray")))))
 ;;; cedet
 (custom-set-faces '(semantic-decoration-on-unknown-includes ((t (:background "#36115AE15AE1"))))
                   '(semantic-decoration-on-unparsed-includes ((t (:background "#36114AE15AE1")))))
 ;;; stripe-buffer
-(custom-set-faces '(stripe-highlight ((t (:background "#0e4f4e")))))
+;(custom-set-faces '(stripe-highlight ((t (:background "#083518")))))
 ;;; highlight-current-line
-(custom-set-faces '(highlight-current-line-face ((t (:background "#1f4f4f")))))
+(custom-set-faces '(highlight-current-line-face ((t (:background "#1f3f4f")))))
 ;;; indent-guide
 (custom-set-faces '(indent-guide-face ((t (:foreground "dimgray")))))
 ;;; markdown
@@ -119,9 +126,9 @@
 (custom-set-faces
  '(rainbow-delimiters-depth-1-face ((t (:foreground "wheat"))))
  '(rainbow-delimiters-depth-2-face ((t (:foreground "wheat"))))
- '(rainbow-delimiters-depth-3-face ((t (:foreground "burlywood"))))
- '(rainbow-delimiters-depth-4-face ((t (:foreground "tan2"))))
- '(rainbow-delimiters-depth-5-face ((t (:foreground "tan3"))))
+ '(rainbow-delimiters-depth-3-face ((t (:foreground "tan"))))
+ '(rainbow-delimiters-depth-4-face ((t (:foreground "burlywood"))))
+ '(rainbow-delimiters-depth-5-face ((t (:foreground "goldenrod"))))
  '(rainbow-delimiters-depth-6-face ((t (:foreground "sienna2"))))
  '(rainbow-delimiters-depth-7-face ((t (:foreground "coral2"))))
  '(rainbow-delimiters-depth-8-face ((t (:foreground "tomato"))))
@@ -165,7 +172,7 @@
   '((t (:foreground "IndianRed")))"")
 ;; logview
 (custom-set-faces
- '(logview-information-entry ((t (:background "#1f4f4f"))))
+ '(logview-information-entry ((t (:background "#1f3f4f"))))
  '(logview-level-debug ((t (:foreground "LightGreen"))))
  '(logview-level-error ((t (:foreground "red"))))
  '(logview-level-warning ((t (:foreground "chocolate")))))
@@ -190,9 +197,9 @@
 	 (300. . "#3FC6FF")
 	 (320. . "#3F99FF")
 	 (340. . "white")
-	 (360. . "LightGray"))))
-'(vc-annotate-background "#1f4f4f")
-'(vc-annotate-very-old-color "LightGray"))
+	 (360. . "gray"))))
+'(vc-annotate-background "#1f3f4f")
+'(vc-annotate-very-old-color "gray"))
 ;;; anzu
 (custom-set-faces '(anzu-mode-line ((t (:foreground "LightBlue" :bold t)))))
 ;;; python
@@ -298,19 +305,19 @@ static char * data[] = {
 					   (t "   ")))
 				" "
 				(:eval (if (eq djangoliv-selwin (get-buffer-window))
-						   (djangoliv-separator-left "#1f443f" "#1f4f4f")
-						 (djangoliv-separator-left "#2f4f4f" "#2f4f4f")))
+						   (djangoliv-separator-left "#193733" "#194242")
+						 (djangoliv-separator-left "#274242" "#274242")))
 				;; directory and buffer/file name
 				(:eval (propertize (shorten-directory default-directory 20) 'face (if (eq djangoliv-selwin (get-buffer-window)) 'mode-line-folder-face 'mode-line-inactive)))
 				;; filename if not dired
 				(:eval (if (not (eq major-mode 'dired-mode)) (propertize "%b " 'face (if (eq djangoliv-selwin (get-buffer-window)) 'mode-line-filename-face 'mode-line-inactive))))
 				(:eval (if (eq djangoliv-selwin (get-buffer-window))
-						   (djangoliv-separator-right "#1f443f" "#1f4f4f")
-						 (djangoliv-separator-right "#2f4f4f" "#2f4f4f")))
+						   (djangoliv-separator-right "#193733" "#194242")
+						 (djangoliv-separator-right "#274242" "#274242")))
 				" "
 				(:eval (propertize "(admin)" 'face (if (string-match "^/su\\(do\\)?:" default-directory)
 													   '(:background "darkred" :foreground "white")
-													 '(:foreground "#1f4f4f"))))
+													 '(:foreground "#194242"))))
 				;; narrow [default -- keep?]
 				" %n "
 				;;"  mode
@@ -322,8 +329,8 @@ static char * data[] = {
 				(vc-mode vc-mode)
 				" "
 				(:eval (if (eq djangoliv-selwin (get-buffer-window))
-						   (djangoliv-separator-left "#1f443f" "#1f4f4f")
-						 (djangoliv-separator-left "#2f4f4f" "#2f4f4f")))
+						   (djangoliv-separator-left "#193733" "#194242")
+						 (djangoliv-separator-left "#274242" "#274242")))
 				(:eval (propertize
 						(let* ((code (symbol-name buffer-file-coding-system))
 							   (eol-type (coding-system-eol-type buffer-file-coding-system))
@@ -334,8 +341,8 @@ static char * data[] = {
 						  (concat code "  " eol ""))
 						'face (if (eq djangoliv-selwin (get-buffer-window)) 'mode-line-black-face 'mode-line-inactive)))
 				(:eval (if (eq djangoliv-selwin (get-buffer-window))
-						   (djangoliv-separator-right "#1f443f" "#1f4f4f")
-						 (djangoliv-separator-right "#2f4f4f" "#2f4f4f")))
+						   (djangoliv-separator-right "#193733" "#194242")
+						 (djangoliv-separator-right "#274242" "#274242")))
 				" "
 				(:propertize mode-line-misc-info face mode-line-col-face)
 				" "
@@ -371,13 +378,13 @@ static char * data[] = {
 (set-face-attribute 'mode-line-read-only-face nil
 					:foreground "blue")
 (set-face-attribute 'mode-line-folder-face nil
-					:background "#1f443f"
+					:background "#193733"
 					:foreground "gray70")
 (set-face-attribute 'mode-line-filename-face nil
 					:inherit 'mode-line-folder-face
 					:foreground "WhiteSmoke")
 (set-face-attribute 'mode-line-black-face nil
-					:background "#1f443f"
+					:background "#193733"
 					:weight 'bold :foreground "black")
 (set-face-attribute 'mode-line-mode-face nil
 					:foreground "MediumBlue")
@@ -390,10 +397,10 @@ static char * data[] = {
 					:foreground "aquamarine")
 ;; defaut
 (set-face-attribute 'mode-line nil
-					:foreground "gray70" :background "#1f4f4f"
+					:foreground "gray70" :background "#194242"
 					:inverse-video nil)
 (set-face-attribute 'mode-line-inactive nil
-					:foreground "#2f1f4f" :background "#2f4f4f"
+					:foreground "#2f1f4f" :background "#274242"
 					:inverse-video nil)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Fin mode line
