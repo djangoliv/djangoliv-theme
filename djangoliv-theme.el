@@ -29,6 +29,9 @@
 ;; (add-to-list 'default-frame-alist '(background-color . "#133434"))
 ;; (add-to-list 'default-frame-alist '(foreground-color . "wheat"))
 ;; tabbar
+
+
+
 (setq tabbar-background-color "#133434") ;; the color of the tabbar background
 (custom-set-variables
  '(tabbar-scroll-left-button (quote (("") "")))
@@ -40,7 +43,7 @@
  '(tabbar-selected ((t (:inherit tabbar-default :foreground "gray" :background "#1f3f4f" :bold t :box '(:line-width 1 :color "CadetBlue" :style nil)))))
  '(tabbar-selected-modified nil :foreground "peru" :bold t :box '(:line-width 1 :color "blue4" :style nil))
  '(tabbar-unselected ((t (:inherit tabbar-default :foreground "Gray50" :background "#1f3f4f" :bold t :box '(:line-width 1 :color "CadetBlue" :style nil)))))
- '(tabbar-unselected-modified nil :foreground "DarkOrange3" :box '(:line-width 1 :color "gray40" :style nil)))
+ '(tabbar-unselected-modified nil :foreground "red" :box '(:line-width 1 :color "gray40" :style nil)))
 (dolist (face '(tabbar-default
 				tabbar-button
 				tabbar-selected
@@ -148,11 +151,11 @@
 (set-face-attribute 'completions-first-difference nil :foreground "white")
 ;; company
 (custom-set-faces
- '(company-tooltip ((t (:background "skyBlue4" :foreground "gray" :box "#003442"))))
+ '(company-tooltip ((t (:background "#26495e" :foreground "gray" :box "#1c446d"))))
  '(company-tooltip-mouse ((t (:background "skyBlue4"))))
  '(company-scrollbar-bg ((t (:background "gray30"))))
  '(company-scrollbar-fg ((t (:background "#003442"))))
- '(company-tooltip-selection ((t (:foreground "WhiteSmoke" :background "#003442"))))
+ '(company-tooltip-selection ((t (:foreground "WhiteSmoke" :background "skyBlue4"))))
  '(company-tooltip-common-selection ((t (:foreground "gray50"))))
  '(company-tooltip-common ((t (:foreground "black"))))
  '(company-tooltip-search ((t (:background "white"))))
@@ -204,6 +207,18 @@
 (custom-set-faces '(anzu-mode-line ((t (:foreground "LightBlue" :bold t)))))
 ;;; python
 (custom-set-faces '(font-lock-doc-face ((t (:foreground "sienna2")))))
+;; mew
+(custom-set-faces
+ '(mew-face-header-subject ((t (:foreground "white" :weight bold))))
+ '(mew-face-header-from ((t (:foreground "gray90" :weight bold))))
+ '(mew-face-header-date ((t (:foreground "gray92"))))
+ '(mew-face-header-to ((t (:foreground "gray94"))))
+ '(mew-face-header-key ((t (:foreground "lightblue"))))
+ '(mew-face-eof-message ((t (:foreground "darkgreen"))))
+ '(mew-face-mark-delete ((t (:foreground "darkred"))))
+ '(mew-face-mark-unread ((t (:foreground "white"))))
+ )
+
 ;;;; modeline
 (setq line-number-mode nil) ;; deja affiché
 ;; separator
