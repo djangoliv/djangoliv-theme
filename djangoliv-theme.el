@@ -28,10 +28,8 @@
 ;; frame
 ;; (add-to-list 'default-frame-alist '(background-color . "#133434"))
 ;; (add-to-list 'default-frame-alist '(foreground-color . "wheat"))
+
 ;; tabbar
-
-
-
 (setq tabbar-background-color "#133434") ;; the color of the tabbar background
 (custom-set-variables
  '(tabbar-scroll-left-button (quote (("") "")))
@@ -51,6 +49,16 @@
 				tabbar-unselected
 				tabbar-unselected-modified))
   (put face 'saved-face-comment "modify"))
+
+;; centaur-tabs
+(custom-set-faces
+ '(centaur-tabs-default ((t (:height 0.95))))
+ '(centaur-tabs-button ((t (:inherit centaur-tabs-default :foreground "gray" :background "#1f3f4f"))))
+ '(centaur-tabs-separator ((t (:background "gray50"))))
+ '(centaur-tabs-selected ((t (:inherit centaur-tabs-default :foreground "gray" :background "#1f3f4f" :bold t))))
+ '(centaur-tabs-selected-modified ((t (:inherit centaur-tabs-default :foreground "gray60" :background "#1f3f4a" :bold t))))
+ '(centaur-tabs-unselected ((t (:inherit centaur-tabs-default :foreground "Gray50" :background "#1f3f4f" :bold t))))
+ '(centaur-tabs-unselected-modified ((t (:inherit centaur-tabs-default :foreground "Gray60" :background "#1f3f4f" :bold t)))))
 
 ;;dired
 (custom-set-faces
